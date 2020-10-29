@@ -1,5 +1,5 @@
 # my-apigee-utils
-This repo is to test and create playbooks using Ansible. The idea is to automate the use of the Apigee Managment API with playbooks.
+Test and create playbooks using Ansible. The idea is to automate the use of the Apigee Managment API with playbooks.
 
 ### How to:
 1. Install Ansible in your machine (Ubuntu):
