@@ -1,0 +1,18 @@
+
+- name: Create directory for proxy
+  shell: "cd {{PROXY_DIR}} && mkdir {{APIGEE_PROXY_NAME}}"
+
+- name: Export proxy from Apigee
+  shell:
+    chdir: "{{PROXY_DIR}}/{{APIGEE_PROXY_NAME}}"
+    cmd: "curl https://api.enterprise.apigee.com/v1/o/{{APIGEE_ORGANIZATION}}/apis/{{APIGEE_PROXY_NAME}}/revisions/1?format=bundle
+    -u {{APIGEE_USR}}:{{APIGEE_ACCESS_TOKEN}} -o {{APIGEE_PROXY_NAME}}.zip"
+    warn: no
+
+- name: Unzip proxy
+  shell: "cd {{PROXY_DIR}}/{{APIGEE_PROXY_NAME}} && unzip {{APIGEE_PROXY_NAME}}.zip" 
+  register: output
+
+- name: Delete proxy .zip
+  shell: "cd {{PROXY_DIR}}/{{APIGEE_PROXY_NAME}} && rm {{APIGEE_PROXY_NAME}}.zip"
+

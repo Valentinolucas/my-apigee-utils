@@ -1,0 +1,46 @@
+- name: export-apigee-proxy
+  hosts: localhost
+  connection: local
+
+  vars:
+    APIGEE_ORGANIZATION: "{{lookup('env', 'APIGEE_ORGANIZATION')}}"
+    APIGEE_PROXY_NAME: "{{lookup('env', 'APIGEE_PROXY_NAME')}}"
+    APIGEE_USR: "{{lookup('env', 'APIGEE_USR')}}" #Apigee usr email
+    APIGEE_ACCESS_TOKEN: "{{lookup('env', 'APIGEE_ACCESS_TOKEN')}}" #Apigee usr passwrd
+    PROXY_DIR: "{{lookup('env', 'PROXY_DIR')}}" #Where you want to save it
+
+  #Check if the env variables are defined
+  pre_tasks:
+      - name: check APIGEE_ORGANIZATION
+        fail:
+          msg: "APIGEE_ORGANIZATION not set"
+        when: not APIGEE_ORGANIZATION
+
+      - name: check APIGEE_PROXY_NAME
+        fail:
+          msg: "APIGEE_PROXY_NAME not set"
+        when: not APIGEE_PROXY_NAME
+
+      - name: check APIGEE_USR
+        fail:
+          msg: "APIGEE_USR not set"
+        when: not APIGEE_USR
+
+      - name: check APIGEE_ACCESS_TOKEN
+        fail:
+          msg: "APIGEE_ACCESS_TOKEN not set"
+        when: not APIGEE_ACCESS_TOKEN
+
+      - name: check APIGEE_ACCESS_TOKEN
+        fail:
+          msg: "APIGEE_ACCESS_TOKEN not set"
+        when: not APIGEE_ACCESS_TOKEN
+
+      - name: check PROXY_DIR
+        fail:
+          msg: "PROXY_DIR not set"
+        when: not PROXY_DIR
+
+#Run the role
+  roles: 
+  - export-apigee-proxy
