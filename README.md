@@ -18,4 +18,4 @@ $ sudo apt install ansible
 * __APIGEE_ACCESS_TOKEN__: "Passwrd-for-apigee-login"
 * __PROXY_DIR__: "Path-to-save-the-proxy"
 
-4. Run the you want with playbook with ansible
+4. Run playbook with ansible
