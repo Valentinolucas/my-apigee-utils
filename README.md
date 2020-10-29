@@ -2,8 +2,7 @@
 This repo is to test and create playbooks using Ansible. The idea is to automate the use of the Apigee Managment API with playbooks.
 
 ### How to:
-1. Install Ansible in your machine
-For Ubuntu:
+1. Install Ansible in your machine (Ubuntu):
 ```
 $ sudo apt update
 $ sudo apt install software-properties-common
